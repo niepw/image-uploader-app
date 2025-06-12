@@ -57,6 +57,7 @@ Open your browser to http://127.0.0.1:5000
 
 ## 📁 Project Structure
 
+```bash
 image-uploader-app/
 ├── app.py
 ├── requirements.txt
@@ -68,6 +69,7 @@ image-uploader-app/
 │   └── index.html
 ├── .gitignore
 └── README.md
+```
 
 ---
 
