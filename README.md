@@ -30,23 +30,30 @@ A slick, modern web app built with Flask and JavaScript that lets users:
 ```bash
 git clone https://github.com/yourusername/image-uploader-app.git
 cd image-uploader-app
+```
 
-2. Create Virtual Environment (optional but recommended)
+### 2. Create Virtual Environment (optional but recommended)
 
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-3. Install Dependencies
+### 3. Install Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-4. Run the App
+### 4. Run the App
 
+```bash
 python app.py
 
 Open your browser to http://127.0.0.1:5000
+```
 
-📁 Project Structure
+## 📁 Project Structure
 
 image-uploader-app/
 ├── app.py
@@ -60,35 +67,26 @@ image-uploader-app/
 ├── .gitignore
 └── README.md
 
-📸 Screenshots
+## 📸 Screenshots
 
 Add screenshots here of the drag-drop UI, live preview, and cropper in action.
 
-🧪 Testing
+## 🧪 Testing
 
 Unit tests coming soon. Want to contribute? See below!
 
-🤝 Contributing
+## 🤝 Contributing
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
 
-📄 License
+## 📄 License
 
 MIT
 
-🙌 Acknowledgments
+## 🙌 Acknowledgments
 
 Flask
 
 CropperJS
 
 Unsplash – for image testing inspiration
-
-
----
-
-### 📦 `requirements.txt`
-
-```text
-Flask==2.2.5
-Werkzeug==2.2.5
