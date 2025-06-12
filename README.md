@@ -53,6 +53,8 @@ python app.py
 Open your browser to http://127.0.0.1:5000
 ```
 
+---
+
 ## 📁 Project Structure
 
 image-uploader-app/
@@ -67,21 +69,31 @@ image-uploader-app/
 ├── .gitignore
 └── README.md
 
+---
+
 ## 📸 Screenshots
 
 Add screenshots here of the drag-drop UI, live preview, and cropper in action.
+
+---
 
 ## 🧪 Testing
 
 Unit tests coming soon. Want to contribute? See below!
 
+---
+
 ## 🤝 Contributing
 
 Pull requests are welcome! For major changes, please open an issue first to discuss what you'd like to change.
 
+---
+
 ## 📄 License
 
 MIT
+
+---
 
 ## 🙌 Acknowledgments
 
