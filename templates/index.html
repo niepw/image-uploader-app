@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Upload App</title>
+  <style>
+    #drop-zone {
+      width: 100%;
+      padding: 50px;
+      border: 3px dashed #bbb;
+      text-align: center;
+      margin-top: 20px;
+      color: #666;
+      transition: 0.3s ease;
+    }
+    #drop-zone.hover {
+      border-color: #444;
+      background-color: #f0f0f0;
+    }
+    img {
+      margin-top: 20px;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Upload an Image</h1>
+
+  <form id="upload-form" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image" id="fileInput">
+    <input type="submit" value="Upload">
+  </form>
+
+  <div id="drop-zone">Or drag and drop your image here</div>
+
+  {% if filename %}
+    <h2>Uploaded Image:</h2>
+    <img src="{{ url_for('static', filename='uploads/' + filename) }}">
+  {% endif %}
+
+  <script>
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('fileInput');
+
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.classList.add('hover');
+    });
+
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.classList.remove('hover');
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('hover');
+      const files = e.dataTransfer.files;
+      if (files.length > 0) {
+        fileInput.files = files;
+        document.getElementById('upload-form').submit();
+      }
+    });
+  </script>
+</body>
+</html>
