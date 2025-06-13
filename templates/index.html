@@ -1,89 +1,101 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Image Upload App</title>
-  <style>
-    #drop-zone {
-      width: 100%;
-      padding: 50px;
-      border: 3px dashed #bbb;
-      text-align: center;
-      margin-top: 20px;
-      color: #666;
-      transition: 0.3s ease;
-    }
-    #drop-zone.hover {
-      border-color: #444;
-      background-color: #f0f0f0;
-    }
-    img {
-      margin-top: 20px;
-      max-width: 400px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Upload an Image</h1>
-
-  <form id="upload-form" method="POST" enctype="multipart/form-data">
-    <input type="file" name="image" id="fileInput">
-    <input type="submit" value="Upload">
-  </form>
-
-  <div id="drop-zone">Or drag and drop your image here</div>
-
-  {% if filename %}
-    <h2>Uploaded Image:</h2>
-    <img src="{{ url_for('static', filename='uploads/' + filename) }}">
-  {% endif %}
-
-  <script>
-    const dropZone = document.getElementById('drop-zone');
-    const fileInput = document.getElementById('fileInput');
-
-    dropZone.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      dropZone.classList.add('hover');
-    });
-
-    dropZone.addEventListener('dragleave', () => {
-      dropZone.classList.remove('hover');
-    });
-
-    dropZone.addEventListener('drop', (e) => {
-      e.preventDefault();
-      dropZone.classList.remove('hover');
-      const files = e.dataTransfer.files;
-      if (files.length > 0) {
-        fileInput.files = files;
-        document.getElementById('upload-form').submit();
-      }
-    });
-  </script>
-
-  <input type="file" name="image" id="fileInput" accept="image/*">
-  <div id="preview"></div>
-
-  <script>
-    const fileInput = document.getElementById('fileInput');
-    const preview = document.getElementById('preview');
+  <head>
+    <title>Image Upload App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href={{url_for('static', filename='css/styles.css')}}>
+  </head>
+  <body>
+    <!-- frame: container -->
+    <div class="frame container-d5fd1d222ba6">
+      <!-- frame: upload-section -->
+      <div class="frame uploadsec-552b6506f74d">
+        <!-- rect: title -->
+        <div class="shape rect title-5549647249e3">
+          <h1>Face Redactor</h1>
+          <h2>
+            A production-ready face redaction server using Python, FastAPI,
+            Celery, YOLO, and OpenCV.
+          </h2>
+          <h3>Upload an image to redact faces</h3>
+        </div>
+        <!-- frame: upload-form -->
+        <div class="frame uploadfor-552b80ba24e9">
+          <!-- rect: select-zone -->
+          <div class="shape rect selectzon-552e6f87da12">
+            <div id="upload-form">
+              <form
+                id="upload-form"
+                method="POST"
+                enctype="multipart/form-data"
+              >
+                <input
+                  type="file"
+                  name="image"
+                  id="fileInput"
+                  accept="image/*"
+                /><input type="submit" value="Upload" />
+              </form>
+            </div>
+          </div>
+          <!-- rect: drop-zone -->
+          <div class="shape rect dropzone-552e5f425c8b">
+            <div id="drop-zone">Drag and drop your image here</div>
+          </div>
+        </div>
+        <!-- frame: preview-form -->
+        <div class="frame previewfo-552eb8001872">
+          <!-- rect: preview -->
+          <div class="shape rect preview-552f00b3ed94">
+            <div id="preview"></div>
+          </div>
+        </div>
+      </div>
+      <!-- frame: result-section -->
+      <div class="frame resultsec-552b99c761ec">
+        {% if filename %}
+        <!-- rect: result-info -->
+        <div class="shape rect resultinf-554acbf6be9c">
+          <p>The image has been successfully uploaded and processed</p>
+        </div>
+        <!-- rect: result-image -->
+        <div class="shape rect resultima-5545caf87891">
+          <img
+            class="uploaded-image"
+            src="{{ url_for('static', filename='uploads/' + filename) }}"
+          />
+        </div>
+        {% else %}
+        <div class="shape rect resultima-5545caf87891">
+          <p>Please upload an image to see the results</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    </body>
+    <script src="{{url_for('static', filename='js/drag-and-drop.js')}}"></script>
+    <script>
+      const preview = document.getElementById("preview");
   
-    fileInput.addEventListener('change', function () {
-      preview.innerHTML = ''; // Clear previous preview
-      const file = this.files[0];
-      if (file && file.type.startsWith('image/')) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          const img = document.createElement('img');
-          img.src = e.target.result;
-          img.style.maxWidth = '400px';
-          img.style.marginTop = '20px';
-          preview.appendChild(img);
-        };
-        reader.readAsDataURL(file);
+      if (fileInput) {
+        fileInput.addEventListener("change", function () {
+          preview.innerHTML = ""; // Clear previous preview
+          const file = this.files[0];
+  
+          if (file && file.type.startsWith("image/")) {
+            const reader = new FileReader();
+  
+            reader.onload = function (e) {
+              const img = document.createElement("img");
+              img.src = e.target.result;
+              img.style.maxWidth = "400px";
+              img.style.marginTop = "20px";
+              preview.appendChild(img);
+            };
+            reader.readAsDataURL(file);
+          }
+        });
       }
-    });
-  </script>
-
-</body>
+    </script>
+  </html>
 </html>
