@@ -4,6 +4,7 @@ static/redacted/
 image_source/
 image_output/
 models/
+*.code-workspace
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
