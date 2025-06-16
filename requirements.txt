@@ -1,2 +1,5 @@
-Flask
-Werkzeug
+flask
+werkzeug
+ultralytics
+opencv-python
+numpy

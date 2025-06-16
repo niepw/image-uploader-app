@@ -3,44 +3,42 @@
   <head>
     <title>Image Upload App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href={{url_for('static', filename='css/styles.css')}}>
+    <link rel="stylesheet" href={{url_for('static',
+    filename='css/styles.css')}}>
   </head>
   <body>
     <!-- frame: container -->
     <div class="frame container-d5fd1d222ba6">
       <!-- frame: upload-section -->
       <div class="frame uploadsec-552b6506f74d">
-        <!-- rect: title -->
-        <div class="shape rect title-5549647249e3">
-          <h1>Face Redactor</h1>
-          <h2>
-            A production-ready face redaction server using Python, FastAPI,
-            Celery, YOLO, and OpenCV.
-          </h2>
-          <h3>Upload an image to redact faces</h3>
-        </div>
         <!-- frame: upload-form -->
         <div class="frame uploadfor-552b80ba24e9">
+          <!-- rect: title -->
+          <div class="shape rect title-5549647249e3">
+            <h1>Face Redactor</h1>
+            <h2>
+              A face redaction server using Python, FastAPI, Celery, YOLO, and
+              OpenCV.
+            </h2>
+          </div>
           <!-- rect: select-zone -->
           <div class="shape rect selectzon-552e6f87da12">
             <div id="upload-form">
-              <form
-                id="upload-form"
-                method="POST"
-                enctype="multipart/form-data"
-              >
+              <form id="upload" method="POST" enctype="multipart/form-data">
                 <input
                   type="file"
                   name="image"
                   id="fileInput"
                   accept="image/*"
-                /><input type="submit" value="Upload" />
+                  autocomplete="off"
+                />
+                <input type="submit" value="Upload" />
               </form>
             </div>
           </div>
           <!-- rect: drop-zone -->
           <div class="shape rect dropzone-552e5f425c8b">
-            <div id="drop-zone">Drag and drop your image here</div>
+            <div id="drop-zone">Drag and drop<br>your image here</div>
           </div>
         </div>
         <!-- frame: preview-form -->
@@ -62,7 +60,11 @@
         <div class="shape rect resultima-5545caf87891">
           <img
             class="uploaded-image"
-            src="{{ url_for('static', filename='uploads/' + filename) }}"
+            src="{{ url_for('static', filename='uploaded/' + filename) }}"
+          />
+          <img
+            class="redacted-image"
+            src="{{ url_for('static', filename='redacted/' + filename) }}"
           />
         </div>
         {% else %}
@@ -72,30 +74,6 @@
         {% endif %}
       </div>
     </div>
-    </body>
     <script src="{{url_for('static', filename='js/drag-and-drop.js')}}"></script>
-    <script>
-      const preview = document.getElementById("preview");
-  
-      if (fileInput) {
-        fileInput.addEventListener("change", function () {
-          preview.innerHTML = ""; // Clear previous preview
-          const file = this.files[0];
-  
-          if (file && file.type.startsWith("image/")) {
-            const reader = new FileReader();
-  
-            reader.onload = function (e) {
-              const img = document.createElement("img");
-              img.src = e.target.result;
-              img.style.maxWidth = "400px";
-              img.style.marginTop = "20px";
-              preview.appendChild(img);
-            };
-            reader.readAsDataURL(file);
-          }
-        });
-      }
-    </script>
-  </html>
+  </body>
 </html>

@@ -1,402 +1,423 @@
       :root {
-          --primary: #28a745;
-          --primary-dark: #218838;
-          --primary-darker: #1e7e34;
-          --bg: #f9f9f9;
-          --card-bg: #ddd;
-          --border: #e0e0e0;
-          --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-          --radius: 16px;
-          --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        --primary: #28a745;
+        --primary-dark: #218838;
+        --primary-darker: #1e7e34;
+        --bg: #f9f9f9;
+        --card-bg: #ddd;
+        --border: #e0e0e0;
+        --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        --radius: 16px;
+        --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       html,
       body {
-          margin: 0;
-          min-height: 100%;
-          min-width: 100%;
-          padding: 0;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        min-width: 100vw;
+        font-size: calc(8pt + 0.2vw);
       }
 
       body {
-          font-family: "Segoe UI", Arial, sans-serif;
-          background: var(--bg);
-          color: #333;
-          margin: 0;
-          padding: 0;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: 100vw;
-          min-height: 100vh;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: var(--bg);
+        color: #333;
+        display: flex;
+        flex: 1;
+        flex-grow: 1;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+        gap: 10px;
       }
 
       * {
-          box-sizing: border-box;
+        box-sizing: border-box;
       }
 
       .text-node {
-          background-clip: text !important;
-          -webkit-background-clip: text !important;
+        background-clip: text !important;
+        -webkit-background-clip: text !important;
       }
 
       /* container */
       .container-d5fd1d222ba6 {
-          position: relative;
-          width: 98%;
-          background: var(--card-bg);
-          border-radius: 25px 25px 25px 25px;
-          display: flex;
-          align-items: start;
-          align-content: start;
-          justify-items: start;
-          justify-content: start;
-          gap: 10px;
-          margin: 20px auto 40px auto;
-          padding: 10px 10px 10px 10px;
-          z-index: 0;
-          flex-direction: row;
-          flex-wrap: wrap;
-          flex-grow: 1;
-          grid-template-rows: 1fr;
-          grid-template-columns: 1fr 1fr;
+        width: 98%;
+        height: auto;
+        background: var(--card-bg);
+        border-radius: 25px 25px 25px 25px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-items: space-around;
+        justify-content: space-around;
+        gap: 10px;
+        margin: 20px 20px 20px 20px;
+        padding: 10px 10px 10px 10px;
+        z-index: 0;
+        flex-direction: column;
+        flex-wrap: wrap;
+        flex-grow: 1;
       }
 
       /* result-section */
       .resultsec-552b99c761ec {
-          position: relative;
-          height: 100%;
-          background: var(--card-bg);
-          border-radius: 0px 0px 0px 0px;
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          align-content: space-around;
-          justify-content: stretch;
-          gap: 10px;
-          padding: 10px 10px 10px 10px;
-          flex-direction: column;
-          flex-wrap: wrap;
-          flex: 1;
-          flex-grow: 1.5;
-          align-self: center;
+        position: relative;
+        width: 100%;
+        height: auto;
+        background: var(--card-bg);
+        border-radius: 0px 0px 0px 0px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 10px 10px 10px 10px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        flex: 1;
+        flex-grow: 2;
+        align-self: start;
       }
 
       /* result-image */
       .resultima-5545caf87891 {
-          width: 100%;
-          background: var(--card-bg);
-          border-radius: 0px 0px 0px 0px;
-          flex: 1;
-          flex-shrink: 0;
-          align-self: start;
-          text-align: center;
+        width: 100%;
+        height: auto;
+        background: var(--card-bg);
+        border-radius: 0px 0px 0px 0px;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 50px;
+        flex: 1;
+        flex-grow: 1;
+        align-self: center;
+        flex-wrap: wrap;
+        flex-direction: row;
       }
 
       /* result-info */
       .resultinf-554acbf6be9c {
-          width: 100%;
-          height: 50%;
-          background: var(--card-bg);
-          border-radius: 0px 0px 0px 0px;
-          flex-shrink: 0;
-          align-self: center;
-          text-align: center;
+        width: 100%;
+        height: auto;
+        background: var(--card-bg);
+        border-radius: 0px 0px 0px 0px;
+        align-self: center;
+        text-align: center;
+        flex: 1;
+        flex-grow: 1;
       }
 
       /* upload-section */
       .uploadsec-552b6506f74d {
-          width: 80%;
-          position: relative;
-          height: auto;
-          background: var(--card-bg);
-          border-radius: 0px 0px 0px 0px;
-          overflow: hidden;
-          display: flex;
-          align-items: start;
-          align-content: space-around;
-          justify-content: start;
-          gap: 10px;
-          padding: 10px 10px 10px 10px;
-          flex-direction: column;
-          flex-wrap: wrap;
-          flex: 1;
-          flex-grow: 1;
-          align-self: center;
+        position: relative;
+        width: 100%; 
+        height: auto;
+        background: var(--card-bg);
+        border-radius: 0px 0px 0px 0px;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-start;
+        align-content: space-around;
+        justify-content: space-around;
+        gap: 10px;
+        padding: 10px 10px 10px 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex: 1;
+        flex-grow: 1;
+        align-self: flex-start;
       }
 
       /* preview-form */
       .previewfo-552eb8001872 {
-          position: relative;
-          width: 100%;
-          background: var(--card-bg);
-          border-radius: 0px 0px 0px 0px;
-          display: flex;
-          align-items: center;
-          align-content: space-around;
-          justify-content: start;
-          gap: 10px;
-          padding: 10px 10px 10px 10px;
-          flex-direction: row;
-          flex-wrap: wrap;
-          flex: 1;
-          flex-grow: 1;
-          align-self: center;
+        position: relative;
+        width: 100%;
+        height: auto;
+        background: var(--card-bg);
+        border-radius: 0px 0px 0px 0px;
+        display: flex;
+        align-items: center;
+        align-content: space-around;
+        justify-content: start;
+        gap: 10px;
+        padding: 10px 10px 10px 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex: 1;
+        flex-grow: 1;
+        align-self: center;
       }
 
       /* preview */
       .preview-552f00b3ed94 {
-          height: 100%;
-          background: var(--card-bg);
-          border-radius: 0px 0px 0px 0px;
-          flex: 1;
-          align-self: center;
+        background: var(--card-bg);
+        border-radius: 0px 0px 0px 0px;
+        flex: 1;
+        align-self: center;
       }
 
       /* upload-form */
       .uploadfor-552b80ba24e9 {
-          position: relative;
-          width: 100%;
-          background: var(--card-bg);
-          border-radius: 0px 0px 0px 0px;
-          display: flex;
-          align-items: center;
-          align-content: space-around;
-          justify-content: start;
-          gap: 10px;
-          padding: 10px 10px 10px 10px;
-          flex-direction: row;
-          flex-wrap: wrap;
-          flex: 1;
-          align-self: center;
+        position: relative;
+        width: 100%;
+        height: auto;
+        background: var(--card-bg);
+        border-radius: 0px 0px 0px 0px;
+        display: flex;
+        align-items: center;
+        align-content: space-around;
+        justify-content: start;
+        gap: 10px;
+        padding: 10px 10px 10px 10px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        flex: 1;
+        flex-grow: 1;
+        align-self: center;
       }
 
       /* drop-zone */
       .dropzone-552e5f425c8b {
-          height: 100%;
-          background: var(--card-bg);
-          border-radius: 0px 0px 0px 0px;
-          flex: 1;
-          flex-shrink: 0;
-          align-self: center;
+        background: var(--card-bg);
+        border-radius: 0px 0px 0px 0px;
+        flex: 1;
+        align-self: center;
       }
 
       /* select-zone */
       .selectzon-552e6f87da12 {
-          height: 100%;
-          background: var(--card-bg);
-          border-radius: 0px 0px 0px 0px;
-          flex: 1;
-          flex-shrink: 0;
-          align-self: center;
+        background: var(--card-bg);
+        border-radius: 0px 0px 0px 0px;
+        flex: 1;
+        align-self: center;
       }
 
       /* title */
       .title-5549647249e3 {
-          width: 100%;
-          height: auto;
-          background: var(--card-bg);
-          border-radius: 0px 0px 0px 0px;
-          flex-shrink: 0;
-          align-self: center;
+        width: 100%;
+        height: auto;
+        background: var(--card-bg);
+        border-radius: 0px 0px 0px 0px;
+        align-self: center;
       }
 
       h1 {
-          text-align: center;
-          color: var(--primary-dark);
-          font-size: 2.2rem;
-          letter-spacing: 1px;
+        text-align: center;
+        color: var(--primary-dark);
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        margin: 5px 0 5px 0;
       }
 
       h2,
       h3 {
-          text-align: center;
+        text-align: center;
+        margin: 5px 0 5px 0;
       }
 
       h2 {
-          color: #444;
-          font-size: 1.2rem;
-          font-weight: 400;
+        color: #444;
+        font-size: 1.2rem;
+        font-weight: 400;
       }
 
       h3 {
-          color: #666;
-          font-size: 1rem;
-          font-weight: 400;
+        color: #666;
+        font-size: 1rem;
+        font-weight: 400;
       }
 
       #drop-zone {
-          border-radius: var(--radius);
-          background: #f8f8f8;
-          padding: 40px 10px;
-          border: 2.5px dashed #bbb;
-          text-align: center;
-          color: #666;
-          transition: border-color var(--transition),
-              background-color var(--transition);
-          font-size: 1.1rem;
-          cursor: pointer;
+        border-radius: var(--radius);
+        background: #f8f8f8;
+        padding: 30px 40px;
+        border: 2.5px dashed #bbb;
+        text-align: center;
+        color: #666;
+        transition: border-color var(--transition),
+          background-color var(--transition);
+        font-size: 1.1rem;
+        cursor: pointer;
       }
 
       #drop-zone.hover {
-          border-color: var(--primary-dark);
-          background: #e8f5e9;
-          color: var(--primary-dark);
+        border-color: var(--primary-dark);
+        background: #e8f5e9;
+        color: var(--primary-dark);
       }
 
-      #upload-form {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          gap: 10px;
+      #upload {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
       }
 
-      #upload-form input[type="file"] {
-          border: 1px solid var(--border);
-          padding: 12px;
-          border-radius: 8px;
-          background: #fafafa;
-          font-size: 1rem;
-          transition: border-color var(--transition);
+      #upload input[type="file"] {
+        border: 1px solid var(--border);
+        padding: 12px;
+        border-radius: 8px;
+        background: #fafafa;
+        font-size: 1rem;
+        transition: border-color var(--transition);
       }
 
-      #upload-form input[type="file"]:focus {
-          border-color: var(--primary);
-          outline: none;
+      #upload input[type="file"]:focus {
+        border-color: var(--primary);
+        outline: none;
       }
 
-      #upload-form input[type="submit"] {
-          padding: 12px 0;
-          background: var(--primary);
-          color: #fff;
-          border: none;
-          border-radius: 8px;
-          font-size: 1.1rem;
-          font-weight: 600;
-          cursor: pointer;
-          transition: background var(--transition);
-          box-shadow: 0 2px 8px rgba(40, 167, 69, 0.08);
+      #upload input[type="submit"] {
+        padding: 12px 0;
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background var(--transition);
+        box-shadow: 0 2px 8px rgba(40, 167, 69, 0.08);
       }
 
-      #upload-form input[type="submit"]:hover {
-          background: var(--primary-dark);
+      #upload input[type="submit"]:hover {
+        background: var(--primary-dark);
       }
 
-      #upload-form input[type="submit"]:active {
-          background: var(--primary-darker);
+      #upload input[type="submit"]:active {
+        background: var(--primary-darker);
       }
 
-      #upload-form input[type="submit"]:disabled {
-          background: #ccc;
-          cursor: not-allowed;
+      #upload input[type="submit"]:disabled {
+        background: #ccc;
+        cursor: not-allowed;
       }
 
       select-image {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
       }
 
       #select-image p {
-          margin: 0;
-          font-size: 1rem;
-          color: #666;
+        margin: 0;
+        font-size: 1rem;
+        color: #666;
       }
 
       #select-image form input[type="file"] {
-          width: 100%;
-          max-width: 300px;
-          font-size: 1rem;
+        width: 100%;
+        max-width: 300px;
+        font-size: 1rem;
       }
 
       .upload-section {
-          display: flex;
-          flex-direction: column;
-          max-width: 800px;
-          width: 100%;
-          padding: 0 16px;
-          box-sizing: border-box;
-          margin: 0 auto;
-          align-items: center;
-          justify-content: center;
-          gap: 24px;
-          margin-top: 24px;
+        display: flex;
+        flex-direction: column;
+        max-width: 800px;
+        width: 100%;
+        padding: 0 16px;
+        box-sizing: border-box;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        margin-top: 24px;
       }
 
       @media (min-width: 700px) {
-          .upload-section {
-              flex-direction: row;
-          }
+        .upload-section {
+          flex-direction: row;
+        }
       }
 
       #preview {
-          width: 100%;
-          text-align: center;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 10px;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
       }
 
       #preview img {
-          border: 2px solid #eee;
-          border-radius: 10px;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-          max-width: 100%;
-          height: auto;
-          transition: transform 0.2s;
+        border: 1px solid #9c9c9c;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        max-width: 100%;
+        height: auto;
+        transition: transform 0.2s;
       }
 
       #preview img:hover {
-          transform: scale(1.04);
+        transform: scale(1.05);
       }
 
       img.uploaded-image {
-          border: 1px solid #9c9c9c;
-          max-width: 100%;
-          border-radius: 10px;
-          border: 1px solid#9c9c9c;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        border: 1px solid #9c9c9c;
+        width: 45%;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid#9c9c9c;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      }
+
+      img.redacted-image {
+        border: 1px solid #9c9c9c;
+        width: 45%;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid#9c9c9c;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
       }
 
       @media (max-width: 600px) {
-          .container {
-              padding: 18px 6px 16px 6px;
-              margin: 16px 0 0 0;
-          }
+        .container {
+          padding: 18px 6px 16px 6px;
+          margin: 16px 0 0 0;
+        }
 
-          h1 {
-              font-size: 1.4rem;
-          }
+        h1 {
+          font-size: 1.4rem;
+        }
 
-          #drop-zone {
-              padding: 24px 4px;
-              font-size: 1rem;
-          }
+        #drop-zone {
+          padding: 24px 4px;
+          font-size: 1rem;
+        }
 
-          #upload-form input[type="file"] {
-              font-size: 0.95rem;
-              padding: 10px;
-          }
+        #upload-form input[type="file"] {
+          font-size: 0.95rem;
+          padding: 10px;
+        }
 
-          #upload-form input[type="submit"] {
-              font-size: 1rem;
-              padding: 10px 0;
-          }
+        #upload-form input[type="submit"] {
+          font-size: 1rem;
+          padding: 10px 0;
+        }
       }
 
       @media (max-width: 700px) {
-          .upload-section {
-              flex-direction: column;
-              gap: 12px;
-              align-items: stretch;
-          }
+        .upload-section {
+          flex-direction: column;
+          gap: 12px;
+          align-items: stretch;
+        }
 
-          #preview {
-              max-width: 100%;
-              min-width: 0;
-              margin-top: 12px;
-          }
+        #preview {
+          max-width: 100%;
+          min-width: 0;
+          margin-top: 12px;
+        }
       }

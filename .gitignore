@@ -1,5 +1,9 @@
 # User defined
-static/uploads/
+static/uploaded/
+static/redacted/
+image_source/
+image_output/
+models/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
