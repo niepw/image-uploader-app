@@ -1,5 +1,5 @@
 const preview = document.getElementById("preview");
-const dropZone = document.getElementById("drop-zone");
+const dropArea = document.getElementById("drop-area");
 const fileInput = document.getElementById("fileInput");
 
 if (fileInput) {
@@ -22,18 +22,18 @@ if (fileInput) {
     });
 }
 
-dropZone.addEventListener("dragover", (e) => {
+dropArea.addEventListener("dragover", (e) => {
     e.preventDefault();
-    dropZone.classList.add("hover");
+    dropArea.classList.add("hover");
 });
 
-dropZone.addEventListener("dragleave", () => {
-    dropZone.classList.remove("hover");
+dropArea.addEventListener("dragleave", () => {
+    dropArea.classList.remove("hover");
 });
 
-dropZone.addEventListener("drop", (e) => {
+dropArea.addEventListener("drop", (e) => {
     e.preventDefault();
-    dropZone.classList.remove("hover");
+    dropArea.classList.remove("hover");
     const files = e.dataTransfer.files;
 
     if (files.length > 0) {
@@ -47,6 +47,6 @@ dropZone.addEventListener("drop", (e) => {
     }
 });
 
-dropZone.addEventListener("click", () => {
+dropArea.addEventListener("click", () => {
     fileInput.click();
 });
