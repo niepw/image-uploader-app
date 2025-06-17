@@ -47,10 +47,20 @@ pip install -r requirements.txt
 
 ### 4. Run the App
 
+#### Development
+
 ```bash
 python main.py
 
-Open your browser to http://127.0.0.1:5000
+Open your browser to http://localhost:5000
+```
+
+#### Production
+
+```bash
+waitress-serve --host 0.0.0.0 main:app
+
+Open your browser to http://localhost:8080
 ```
 
 ---
@@ -76,7 +86,7 @@ image-uploader-app/
 ├── LICENSE
 ├── main.py
 ├── README.md
-├── requirements.txt
+└── requirements.txt
 ```
 
 ---

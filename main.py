@@ -84,7 +84,7 @@ def index():
     return render_template("index.html", filename=None)
 
 
-@app.route("/uploads/<filename>")
+@app.route("/uploaded/<filename>")
 def uploaded_file(filename):
     """
     Redirects the client to the URL of the uploaded file in the static
@@ -98,6 +98,22 @@ def uploaded_file(filename):
         HTTP status code 301.
     """
     return redirect(url_for("static", filename=f"uploaded/{filename}"), code=301)
+
+
+@app.route("/redacted/<filename>")
+def redacted_file(filename):
+    """
+    Redirects the client to the URL of the redacted file in the static
+    directory.
+
+    Args:
+        filename (str): The name of the redacted file.
+
+    Returns:
+        Response: A Flask redirect response to the static file location with
+        HTTP status code 301.
+    """
+    return redirect(url_for("static", filename=f"redacted/{filename}"), code=301)
 
 
 if __name__ == "__main__":

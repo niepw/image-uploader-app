@@ -1,6 +1,7 @@
 # User defined
 static/uploaded/
 static/redacted/
+static/test_images/
 image_source/
 image_output/
 models/
