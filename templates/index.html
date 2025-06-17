@@ -7,70 +7,67 @@
     filename='css/styles.css')}}>
   </head>
   <body>
-    <!-- frame: container -->
-    <div class="frame container-d5fd1d222ba6">
+    <!-- frame: main-container -->
+    <div class="frame main-container">
       <!-- frame: upload-section -->
-      <div class="frame uploadsec-552b6506f74d">
-        <!-- frame: upload-form -->
-        <div class="frame uploadfor-552b80ba24e9">
-          <!-- rect: title -->
-          <div class="shape rect title-5549647249e3">
+      <div class="frame upload-section">
+        <!-- frame: upload-container -->
+        <div class="frame upload-container">
+          <!-- frame: app-title -->
+          <div class="frame app-title">
             <h1>Face Redactor</h1>
             <h2>
               A face redaction server using Python, FastAPI, Celery, YOLO, and
               OpenCV.
             </h2>
           </div>
-          <!-- rect: select-zone -->
-          <div class="shape rect selectzon-552e6f87da12">
-            <div id="upload-form">
-              <form id="upload" method="POST" enctype="multipart/form-data">
-                <input
-                  type="file"
-                  name="image"
-                  id="fileInput"
-                  accept="image/*"
-                  autocomplete="off"
-                />
-                <input type="submit" value="Upload" />
-              </form>
+          <!-- frame: select-zone -->
+          <div class="frame select-zone">
+            <form id="upload-form" method="POST" enctype="multipart/form-data">
+              <input
+                type="file"
+                name="image"
+                id="fileInput"
+                accept="image/*"
+                autocomplete="off"
+              />
+              <input type="submit" value="Upload" />
+            </form>
+            <!-- frame: drop-zone -->
+            <div class="frame drop-zone">
+              <div id="drop-area">Drag and drop<br />your image here</div>
             </div>
           </div>
-          <!-- rect: drop-zone -->
-          <div class="shape rect dropzone-552e5f425c8b">
-            <div id="drop-zone">Drag and drop<br>your image here</div>
-          </div>
         </div>
-        <!-- frame: preview-form -->
-        <div class="frame previewfo-552eb8001872">
-          <!-- rect: preview -->
-          <div class="shape rect preview-552f00b3ed94">
-            <div id="preview"></div>
-          </div>
+        <!-- frame: preview-container -->
+        <div class="frame preview-container">
+          <div id="preview">Preview Area</div>
         </div>
       </div>
       <!-- frame: result-section -->
-      <div class="frame resultsec-552b99c761ec">
+      <div class="frame result-section">
         {% if filename %}
-        <!-- rect: result-info -->
-        <div class="shape rect resultinf-554acbf6be9c">
+        <!-- frame: result-info -->
+        <div class="frame result-info">
           <p>The image has been successfully uploaded and processed</p>
         </div>
-        <!-- rect: result-image -->
-        <div class="shape rect resultima-5545caf87891">
+        <!-- frame: result-image -->
+        <div class="frame result-image">
           <img
-            class="uploaded-image"
+            id="uploaded-image"
             src="{{ url_for('static', filename='uploaded/' + filename) }}"
           />
           <img
-            class="redacted-image"
+            id="redacted-image"
             src="{{ url_for('static', filename='redacted/' + filename) }}"
           />
         </div>
         {% else %}
-        <div class="shape rect resultima-5545caf87891">
+        <div class="frame result-info">
           <p>Please upload an image to see the results</p>
         </div>
+        <!-- frame: result-image -->
+        <div class="frame result-image"></div>
         {% endif %}
       </div>
     </div>
