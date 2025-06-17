@@ -1,5 +1,6 @@
 flask
 werkzeug
+waitress
 ultralytics
 opencv-python
 numpy

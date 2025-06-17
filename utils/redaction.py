@@ -7,10 +7,13 @@ def redact_faces(image_bytes: bytes, detections: list, method="blur"):
     Redacts faces in an image using the specified method.
 
     Args:
-        image_bytes (bytes): The input image as a byte array (e.g., JPEG-encoded).
-        detections (list): A list of face bounding boxes, each as a tuple (x, y, w, h).
+        image_bytes (bytes): The input image as a byte array 
+            (e.g., JPEG-encoded).
+        detections (list): A list of face bounding boxes, each as a 
+            tuple (x, y, w, h).
         method (str, optional): The redaction method to use. 
-            Supported values are "blur" (default) for Gaussian blur and "pixelate" for pixelation.
+            Supported values are "blur" (default) for Gaussian blur and 
+            "pixelate" for pixelation.
 
     Returns:
         bytes: The redacted image encoded as JPEG bytes.

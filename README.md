@@ -48,7 +48,7 @@ pip install -r requirements.txt
 ### 4. Run the App
 
 ```bash
-python app.py
+python main.py
 
 Open your browser to http://127.0.0.1:5000
 ```
@@ -59,16 +59,24 @@ Open your browser to http://127.0.0.1:5000
 
 ```bash
 image-uploader-app/
-├── app.py
-├── requirements.txt
 ├── static/
 │   ├── uploads/
-│   └── css/
-│       └── style.css
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── drag-and-drops.js
 ├── templates/
 │   └── index.html
+├── utils/
+│   ├── detection.py
+│   ├── redaction_pipeline.py
+│   ├── redaction.py
 ├── .gitignore
-└── README.md
+├── config.py
+├── LICENSE
+├── main.py
+├── README.md
+├── requirements.txt
 ```
 
 ---
