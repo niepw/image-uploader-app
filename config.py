@@ -15,6 +15,7 @@ It defines the following configuration variables:
 
 import os
 import urllib.request
+import tqdm
 
 # Load configurations from environment variables or use defaults
 MODEL_PATH = os.getenv("MODEL_PATH", "models/yolov11l-face.pt")
@@ -22,7 +23,7 @@ MODEL_PATH = os.getenv("MODEL_PATH", "models/yolov11l-face.pt")
 if not os.path.exists(MODEL_PATH):
     # Download the model from http://ultralytics.com/assets/yolov11l-face.pt
     os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
-    url = "http://ultralytics.com/assets/yolov11l-face.pt"
+    url = "https://github.com/akanametov/yolo-face/releases/download/v0.0.0/yolov11l-face.pt"
     urllib.request.urlretrieve(url, MODEL_PATH)
 
 UPLOADED_FOLDER = os.getenv("UPLOAD_FOLDER", "static/uploaded/")

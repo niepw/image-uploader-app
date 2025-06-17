@@ -4,3 +4,4 @@ waitress
 ultralytics
 opencv-python
 numpy
+tqdm
