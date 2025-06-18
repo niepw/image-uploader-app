@@ -83,8 +83,12 @@
       </div>
       <!-- frame: result-image -->
       <div class="frame result-image">
-        <img id="uploaded-image" src="{{ url_for('static', filename='uploaded/' + filename) }}" />
-        <img id="redacted-image" src="{{ url_for('static', filename='redacted/' + filename) }}" />
+        <a href="{{ url_for('static', filename='uploaded/' + filename) }}">
+          <img id="uploaded-image" src="{{ url_for('static', filename='uploaded/' + filename) }}" />
+        </a>
+        <a href="{{ url_for('static', filename='redacted/' + filename) }}">
+          <img id="redacted-image" src="{{ url_for('static', filename='redacted/' + filename) }}" />
+        </a>
       </div>
       {% else %}
       <div class="frame result-info">
