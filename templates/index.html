@@ -5,8 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href={{url_for('static',
     filename='css/styles.css')}}>
+    <link rel="stylesheet" href={{url_for('static',
+    filename='css/spinner.css')}}>
   </head>
   <body>
+    <!-- loading spinner -->
+    <div id="loading-spinner" class="loadingio-spinner" style="visibility: hidden;">
+      <div class="ldio-spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
     <!-- frame: main-container -->
     <div class="frame main-container">
       <!-- frame: upload-section -->
@@ -31,7 +51,7 @@
                 accept="image/*"
                 autocomplete="off"
               />
-              <input type="submit" value="Upload" />
+              <input type="submit" id="formSubmit" value="Upload" />
             </form>
             <!-- frame: drop-zone -->
             <div class="frame drop-zone">

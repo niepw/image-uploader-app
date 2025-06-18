@@ -1,6 +1,12 @@
 const preview = document.getElementById("preview");
 const dropArea = document.getElementById("drop-area");
 const fileInput = document.getElementById("fileInput");
+const loadingSpinner = document.getElementById("loading-spinner");
+
+
+fileInput.form.addEventListener("submit", function () {
+    loadingSpinner.style.visibility = "visible"; // Show the loading spinner
+});
 
 if (fileInput) {
     // Add an event listener to handle file selection and drag-and-drop functionality
