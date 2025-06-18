@@ -1,5 +1,5 @@
 :root {
-  --scale: 1; /* Scale factor for the spinner */
+  --scale-spinner: 1; /* Scale factor for the spinner */
 }
 
 @keyframes ldio-spinner {
@@ -97,10 +97,10 @@
 }
 
 .loadingio-spinner {
-  top: calc((100vh - (200px * var(--scale))) / 2);
-  left: calc((100vw - (200px * var(--scale))) / 2);
-  width: calc(200px * var(--scale));
-  height: calc(200px * var(--scale));
+  top: calc((100vh - (200px * var(--scale-spinner))) / 2);
+  left: calc((100vw - (200px * var(--scale-spinner))) / 2);
+  width: calc(200px * var(--scale-spinner));
+  height: calc(200px * var(--scale-spinner));
   position: absolute;
   display: relative;
   overflow: hidden;
@@ -112,7 +112,7 @@
   width: 100%;
   height: 100%;
   position: relative;
-  transform: translateZ(0) scale(var(--scale));
+  transform: translateZ(0) scale(var(--scale-spinner));
   backface-visibility: hidden;
   transform-origin: 0 0;
   /* see note above */

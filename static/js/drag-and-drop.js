@@ -2,10 +2,12 @@ const preview = document.getElementById("preview");
 const dropArea = document.getElementById("drop-area");
 const fileInput = document.getElementById("fileInput");
 const loadingSpinner = document.getElementById("loading-spinner");
+const loadingBeanEater = document.getElementById("loading-bean-eater");
 
 
 fileInput.form.addEventListener("submit", function () {
-    loadingSpinner.style.visibility = "visible"; // Show the loading spinner
+    // loadingSpinner.style.visibility = "visible"; // Show the loading spinner
+    loadingBeanEater.style.visibility = "visible"; // Show the loading bean eater
 });
 
 if (fileInput) {
