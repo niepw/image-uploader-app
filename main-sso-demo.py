@@ -1,40 +1,3 @@
-"""
-A Flask web application for uploading images, processing them for redaction,
-and serving both original and redacted images.
-
-Modules:
-    os: For file and directory operations.
-
-    flask: For web framework functionalities.
-
-    werkzeug.utils: For securing uploaded filenames.
-
-    utils.redaction_pipeline: For image redaction processing.
-
-Configuration:
-    UPLOAD_FOLDER: Directory to store uploaded images.
-
-    REDACTED_FOLDER: Directory to store redacted images.
-
-Routes:
-    / (GET, POST): Main page for uploading images. Handles file upload, saves
-    the original image, processes it for redaction, and saves the redacted
-    image. Renders the index page with the filename if an image is uploaded.
-
-    /uploads/<filename> (GET): Redirects to the static URL for the uploaded
-    image.
-
-Functions:
-    index(): Handles image upload and redaction processing.
-
-    uploaded_file(filename): Redirects to the static file location for the
-    uploaded image.
-
-Usage:
-    Run this script to start the Flask development server. Access the web
-    interface to upload and redact images.
-"""
-
 import os
 from urllib.parse import urlparse
 from flask import (
@@ -49,11 +12,12 @@ from flask import (
 from werkzeug.utils import secure_filename
 from onelogin.saml2.auth import OneLogin_Saml2_Auth
 from onelogin.saml2.utils import OneLogin_Saml2_Utils
+from onelogin.saml2.settings import OneLogin_Saml2_Settings
 from utils.redaction_pipeline import detect_and_redact_image
-from config import UPLOADED_FOLDER, REDACTED_FOLDER 
+from config import UPLOADED_FOLDER, REDACTED_FOLDER
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "b613679a0814d9ec772f95d778c35fc5ff1697c493715653c6c712144292c5ad"
+app.config["SECRET_KEY"] = "onelogindemopytoolkit"
 app.config["SAML_PATH"] = os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "saml"
 )
@@ -80,24 +44,6 @@ def prepare_flask_request(request):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    """
-    Handles the main route for image uploading and redaction.
-
-    If the request method is POST and an image file is provided, the function:
-    - Secures and sanitizes the uploaded filename.
-    - Reads the image file content.
-    - Saves the original image to the configured upload folder.
-    - Processes the image using `detect_and_redact_image` and saves the
-      redacted version to the redacted folder.
-    - Renders the index template with the filename of the uploaded image.
-
-    If the request method is GET or no file is uploaded, renders the index
-    template without a filename.
-
-    Returns:
-        Rendered HTML template for the index page, with or without the
-        uploaded filename.
-    """
     req = prepare_flask_request(request)
     auth = init_saml_auth(req)
     errors = []
@@ -166,10 +112,11 @@ def index():
         request_id = None
         if "LogoutRequestID" in session:
             request_id = session["LogoutRequestID"]
-        
+            print(f"LogoutRequestID: {request_id}")
+
         def dscb():
             return session.clear()
-        
+
         url = auth.process_slo(request_id=request_id, delete_session_cb=dscb())
         errors = auth.get_errors()
         if len(errors) == 0:
@@ -185,39 +132,10 @@ def index():
     if "samlUserdata" in session:
         paint_logout = True
         if len(session["samlUserdata"]) > 0:
-            attributes = session["samlUserdata"]
-            print(f"Attributs: {attributes}")
+            attributes = session["samlUserdata"].items()
 
-        if request.method == "POST":
-            file = request.files["image"]
-            if file:
-                # Ensure the filename is unique or sanitized if necessary
-                filename = secure_filename(file.filename)
-                content = file.read()
-                # Save the original file to the upload folder
-                with open(f"{UPLOADED_FOLDER}{filename}", "wb") as f:
-                    f.write(content)
-                # Process the image and save the redacted version
-                with open(f"{REDACTED_FOLDER}{filename}", "wb") as f:
-                    f.write(detect_and_redact_image(content, 0.2))
-                # return render_template("index.html", filename=filename)
-                return render_template(
-                    "index.html",
-                    filename=filename,
-                    errors=errors,
-                    error_reason=error_reason,
-                    not_auth_warn=not_auth_warn,
-                    success_slo=success_slo,
-                    attributes=attributes,
-                    paint_logout=paint_logout,
-                )
-
-    # If the request method is GET or if no file was uploaded, render the
-    # index page without a filename
-    print("No file uploaded or GET request received.")
-    # return render_template("index.html", filename=None)
     return render_template(
-        "index.html",
+        "index-sso-demo.html",
         filename=None,
         errors=errors,
         error_reason=error_reason,
@@ -226,38 +144,6 @@ def index():
         attributes=attributes,
         paint_logout=paint_logout,
     )
-
-
-@app.route("/uploaded/<filename>")
-def uploaded_file(filename):
-    """
-    Redirects the client to the URL of the uploaded file in the static
-    directory.
-
-    Args:
-        filename (str): The name of the uploaded file.
-
-    Returns:
-        Response: A Flask redirect response to the static file location with
-        HTTP status code 301.
-    """
-    return redirect(url_for("static", filename=f"uploaded/{filename}"), code=301)
-
-
-@app.route("/redacted/<filename>")
-def redacted_file(filename):
-    """
-    Redirects the client to the URL of the redacted file in the static
-    directory.
-
-    Args:
-        filename (str): The name of the redacted file.
-
-    Returns:
-        Response: A Flask redirect response to the static file location with
-        HTTP status code 301.
-    """
-    return redirect(url_for("static", filename=f"redacted/{filename}"), code=301)
 
 
 @app.route('/metadata/')
@@ -277,6 +163,21 @@ def metadata():
     else:
         resp = make_response(", ".join(errors), 500)
     return resp
+
+
+@app.route("/attrs/")
+def attrs():
+    paint_logout = False
+    attributes = False
+
+    if "samlUserdata" in session:
+        paint_logout = True
+        if len(session["samlUserdata"]) > 0:
+            attributes = session["samlUserdata"].items()
+
+    return render_template(
+        "attrs-sso-demo.html", paint_logout=paint_logout, attributes=attributes
+    )
 
 
 if __name__ == "__main__":

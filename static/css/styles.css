@@ -29,8 +29,8 @@ body {
   flex-grow: 1;
   flex: 1;
   font-family: 'Noto Sans', sans-serif;
-  gap: 10px;
-  justify-content: center;
+  gap: 2px;
+  justify-content: stretch;
   justify-items: center;
 }
 
@@ -39,11 +39,29 @@ body {
 }
 
 /* 
-      .text-node {
-        -webkit-background-clip: text !important;
-        background-clip: text !important;
-      }
- */
+.text-node {
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+} 
+*/
+
+.frame.status-container {
+  align-content: center;
+  align-items: center;
+  background: var(--card-bg);
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  justify-items: space-between;
+  margin: 0px 0px 0px 0px;
+  padding: 10px 10px 10px 10px;
+  width: 100%;
+  z-index: 0;
+}
+
 .frame.main-container {
   align-content: center;
   align-items: center;
@@ -196,7 +214,7 @@ h3 {
 }
 
 #drop-area {
-  width: 110px;
+  width: 150px;
   height: 110px;
   display: flex;
   flex-shrink: 1;
@@ -209,6 +227,7 @@ h3 {
   padding: 5px 5px;
   text-align: center;
   align-items: center;
+  justify-content: center;
   transition: border-color var(--transition), background-color var(--transition);
 }
 
@@ -306,7 +325,7 @@ h3 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   width: auto;
   height: auto;
-  max-width:100%;
+  max-width: 100%;
   max-height: 100%;
   flex: 1 1 auto;
 }

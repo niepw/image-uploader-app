@@ -1,0 +1,30 @@
+{
+    "strict": false,
+    "debug": true,
+    "sp": {
+        "entityId": "https://dt20107.dsd.hksarg:5000/metadata",
+        "assertionConsumerService": {
+            "url": "https://dt20107.dsd.hksarg:5000/?acs",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+        },
+        "singleLogoutService": {
+            "url": "https://dt20107.dsd.hksarg:5000/?sls",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        },
+        "NameIDFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+        "x509cert": "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",
+        "privateKey": ""
+    },
+    "idp": {
+        "entityId": "https://tstadfs03.dsd.hksarg/adfs/services/trust",
+        "singleSignOnService": {
+            "url": "https://tstadfs03.dsd.hksarg/adfs/ls",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        },
+        "singleLogoutService": {
+            "url": "https://dt20107.dsd.hksarg:5000/?sls",
+            "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+        },
+        "x509cert": "MIIC5DCCAcygAwIBAgIQEkaBTT7esoJJqfGnrQ4BYTANBgkqhkiG9w0BAQsFADAuMSwwKgYDVQQDEyNBREZTIFNpZ25pbmcgLSB0c3RhZGZzMDMuZHNkLmhrc2FyZzAeFw0yNTA2MTcwNjIwNDRaFw0yNjA2MTcwNjIwNDRaMC4xLDAqBgNVBAMTI0FERlMgU2lnbmluZyAtIHRzdGFkZnMwMy5kc2QuaGtzYXJnMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArkBh1u9O1fiLrQq5O57OYXlvls7D6W3onDst0fWVGb7z3uupARMt0LAmG5Lf3i5DsyBreWSDBRT7h1IkVh2SJvc5a7tPTDDS+7kww/b8FCREcGAZLGlppPFz8dOHPxzUYs+JLKX9mwj8Twna5VMgnqApm5DN4WfHN6mJpkDo3M8TOY8Gi7txWbM+jdw1pdMX4Ufk1BzXewRxtODnp83QYa8+RhZH3+y1GNlfIGFRikJApVgOjS4EN+fWgvxAWPmtlRX3yA0zIlJS1DUBJltt2Dt8Iz9ZXHC40y9ED008fp4ugwIigDe2KiXkkEmsC0d904inF2pvuE89QNEV5v0fLQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQA4oDd+GE9dRT8Qd5mGUTPz4RCnb5fl+ZNQ2jpy/nsyyJsHF29ug0HWgK6jdH5oCAhcV/Ji+v8vEnbXRJFnvk/PpwnUUBZB7phADg152NvOLYDpkmkkFrKRKtfu3eOt7qMZhs4S5Q//w+Tr3B/v5kfZCipG7U8g45rmv9rtNL4b5EcpCQT92JjyhikwBWTTaVHNPudt5A7mEt14NsYawkV2r6SPhFDG4JUKl3sZqcY9D8+Uc7WW5jEXFrI9EWI6iAogxshQvN+G/nTNoP6ZACyZdChvX+ryBEN0MBguxtugAevck+jRwkbqu+g/lJRQ8vnOe3edGfcnQVLIzAS/J5Ft"
+    }
+}

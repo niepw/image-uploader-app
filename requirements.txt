@@ -5,3 +5,5 @@ ultralytics
 opencv-python
 numpy
 print-color
+python3-saml
+pyOpenSSL
